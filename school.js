@@ -7,7 +7,7 @@ class Student {
     }
 
     print() {
-        console.log(`학번: ${this.snum}    이름: ${this.name}    전공: ${this.major}   연락처: ${this.phone}`)
+        console.log(`학번: ${this.snum}    이름: ${this.name}    전공: ${this.major}   d연락처: ${this.phone}`)
     }
 }
 
