@@ -1,8 +1,8 @@
 // 모듈 추출
-const express = require('express');
+let express = require('express');
 
 // 서버 생성
-const app = express();
+let app = express();
 
 // request 이벤트 리스너를 설정
 // app.use((request, response) => {
@@ -18,6 +18,6 @@ app.get('/page/:id', (request, response) => {
 });
 
 // 서버 실행
-app.listen(52273, () => {
-    console.log('Server running at http://127.0.0.1:52273/page/273');
+app.listen(3000, () => {
+    console.log('Server running at http://localhost:3000');
 });
