@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생정보입력</title>
+</head>
+<body>
+    <h1>학생정보입력</h1>
+    <br>
+    <form method="post" action="/student">
+        <table>
+            <tr>
+                <td><label>학번</label></td>
+                <td><input type="text" name="hakbun"/></td>
+            </tr>
+            <tr>
+                <td><label>이름</label></td>
+                <td><input type="text" name="name"/></td>
+            </tr>
+            <tr>
+                <td><label>연락처(핸드폰)</label></td>
+                <td><input type="text" name="phone"/></td>
+            </tr>
+            <tr>
+                <td><label>이메일</label></td>
+                <td><input type="email" name="email"/></td>
+            </tr>
+        </table>
+        <input type="submit" value="전송" name=""/>
+    </form>
+</body>
+</html>
