@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인 테스트</title>
+    <title><%= jemok %></title>
 </head>
 <body>
     <h1>로그인</h1>
     <br>
     <form method="post" action="/login">
         <table>
+            <h2>학번 <%= hakbun %></h2>
+            <h2>이름 <%= name %></h2>
+
             <th>index</th>
             <th>제목</th>
             <th>내용</th>
             <th>관리자이름</th>
             <th>고정</th>
             <th>공개</th>
-            <% for(let i=0; i<5; i++) { %>
+            <% for(let i=0; i<count; i++) { %>
                 <tr>
                     <td>1</td>
                     <td>2</td>
