@@ -9,6 +9,8 @@ let todosArr = [
     {id:4, contents: '노래듣기', yesno: 'no'}
 ];  // 빈배열
 
+let count = 5;
+
 let app = express();
 
 app.use(express.static('public'));  // pulbic 폴더 공유
@@ -22,17 +24,54 @@ app.get('/', (req, res) => {
 });
 app.get('/insert', (req, res) => {
     console.log("/insert get 시작됨~");
-    // 추가
+    res.render('insert');   // in sert.ejs 화면
 }) ;
 app.post('/insert', (req, res) => {
     console.log("/insert post 시작됨~");
-    // 추가
+    // 배열에 입력받은 값으로 객체를 만들어 추가
+    let id_num = count++;
+    todosArr.push({id:id_num, contents: req.body.contents, yesno: req.body.yesno});
+    res.redirect("/");
 }) ;
-app.get('/delete:id', (req, res) => {
-    console.log("/delete "+id);
+app.get('/delete/:id', (req, res) => {
+    console.log("/delete " + req.params.id);
     // 추가
+    for(const i in todosArr) {
+        if(todosArr[i].id == req.params.id) {
+            console.log(todosArr[i].id + " " + i);
+            todosArr.splice(i, 1);
+        }
+    }
+    console.log("delete ok~~~ " + res.id);
     res.redirect("/");
 });
+app.get('/edit/:id', (req, res) => {
+    let editdata = [];
+    console.log("/edit ok~" + req.params.id);
+    for(const i in todosArr) {
+        if(todosArr[i].id == req.params.id) {
+            console.log(todosArr[i].id + " " + i);
+            editdata = todosArr[i];
+            res.render('edit', {data: editdata});   // edit.ejs
+            todosArr.splice(i, 1);
+        }
+    }
+});
+app.post('/edit/:id', (req, res) => {
+    let editdata = [];
+    console.log("/edit ok~" + req.params.id);
+    if(req.body.contents && req.body.yesno) {
+        console.log("수정 값~~~ " + req.body.contents + " " + req.body.yesno);
+    }
+    for(const i in todosArr) {
+        if(todosArr[i].id == req.params.id) {
+            todosArr.splice(i, 1, {id:req.params.id, contents:req.body.yesno});
+            console.log("수정 ok~~~ " + req.params.id);
+        }
+    }
+    res.redirect("/");
+});
+
 app.listen(3000, () => {
     console.log("3000포트 서버가 시작됨~~");
 });
