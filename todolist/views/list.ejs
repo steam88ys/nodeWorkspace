@@ -28,18 +28,11 @@
                 <td> <%= item.contents %> </td>
                 <td> <%= item.yesno %> </td>
                 <td>
-                    <% if(item.yesno == 'yes') { %>
-                        <button type="button" class="btn btn-success" > 변경 </button>
-                    <% } else { %>
-                        <a href="/edit/<%= item.id %>">
-                        <button type="button"> 완료 </button>
+                <td>
+                    <a href="/delete/<%= item.id %>">
+                        <button type="button"> 삭제 </button>
                         </a>
-                    <% } %>
-                    <td>
-                        <a href="/delete/<%= item.id %>">
-                            <button type="button"> 삭제 </button>
-                            </a>
-                    </td>
+                </td>
             </tr>    
         <%})%>
     </table>
